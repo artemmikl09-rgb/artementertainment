@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artem Entertainment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="https://i.pinimg.com/originals/5e/2e/d2/5e2ed24037827da0452b1b12a08ad383.jpg" alt="Логотип" class="site-logo">
+    <h1>Артем интертеймент</h1>
+  </header>
+
+  <nav class="categories">
+    <button class="cat-btn active" data-cat="all">Все</button>
+    <button class="cat-btn" data-cat="action">Боевики</button>
+    <button class="cat-btn" data-cat="comedy">Комедии</button>
+    <button class="cat-btn" data-cat="drama">Драма</button>
+    <button class="cat-btn" data-cat="thriller">Триллер</button>
+    <button class="cat-btn" data-cat="science fiction">научная фантастика</button>
+    <button class="cat-btn" data-cat="horror">Ужасы</button>
+    <button class="cat-btn" data-cat="adventure">Приключения</button>
+    <button class="cat-btn" data-cat="biopic">биографический</button>
+    <button class="cat-btn" data-cat="documentary">Документальное</button>
+    <button class="cat-btn" data-cat="fantasy">фэнтези</button>
+    <button class="cat-btn" data-cat="musical">мюзикл</button>
+    <button class="cat-btn" data-cat="romance">мелодрама</button>
+    <button class="cat-btn" data-cat="western">вестерн</button>
+    <button class="cat-btn" data-cat="animated film">анимационный фильм</button>
+  </nav>
+
+  <div class="movies-grid">
+    <!-- Карточка 1 -->
+    <div class="movie-card"
+      data-cat="action"
+      data-src="https://rutube.ru/video/b1d1d90a87346f5ce50bf0acc3574fa5/"
+      data-poster="https://ru-images-s.kinorium.com/movie/1080/9874739.jpg"
+      data-desc="Одинокий и повзрослевший Питер Паркер полностью посвящает себя борьбе с преступностью в Нью-Йорке, поскольку 4 года назад после заклинания Доктора Стренджа мир и все близкие забыли его. Но с ростом угроз и нагрузки на Человека-паука его способности претерпевают странные изменения, способные поставить под угрозу его существование. Тем временем в городе случается новая цепочка преступлений, которая приводит к появлению одного из самых опасных противников в жизни Питера.">
+      <img 
+        src="https://ru-images-s.kinorium.com/movie/1080/9874739.jpg" 
+        loading="lazy" 
+        alt="Человек‑паук: Новый день" 
+        onerror="this.src='https://via.placeholder.com/140x225?text=No+Image'"
+      >
+      <div class="movie-title">Человек паук: Новый день</div>
+    </div>
+
+    <!-- Карточка 2 -->
+    <div class="movie-card"
+      data-cat="fantasy adventure comedy"
+      data-src="https://rutube.ru/video/8fbfc5a38796c7ff495c93d55ec26a3b/"
+      data-poster="https://avatars.mds.yandex.net/i?id=7606a737ca8b4ec2329bcf3ef0961088ed5ca10d-7059721-images-thumbs&n=13"
+      data-desc="Моана откликается на зов океана. Впервые в жизни она отправляется за риф своего острова Мотунуи вместе с прославленным полубогом Мауи. Их ждёт незабываемое путешествие, которое должно вернуть процветание её народу.">
+      <img src="https://avatars.mds.yandex.net/i?id=7606a737ca8b4ec2329bcf3ef0961088ed5ca10d-7059721-images-thumbs&n=13" loading="lazy" alt="Моана" onerror="this.src='https://via.placeholder.com/140x225?text=Moana'">
+      <div class="movie-title">Моана фильм</div>
+    </div>
+    
+    <!-- Карточка 3 -->
+    <div class="movie-card"
+      data-cat="animated film"
+      data-src="https://rutube.ru/video/9a5a2ea826d955424bca4628525f4c1a/"
+      data-poster="https://thumb.wikimedia.org/wikipedia/ru/thumb/2/2c/Spider-Man_-_Into_the_Spider-Verse.jpg/960px-Spider-Man_-_Into_the_Spider-Verse.jpg?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+      data-desc="Мы всё знаем о Питере Паркере. Он спас город, влюбился, а потом спасал город снова и снова… Но все это – в нашем измерении. А что если в результате работы гигантского коллайдера откроется окно из одного измерения в другое? Найдется ли в нем свой Человек-паук? И как он будет выглядеть? Приготовьтесь к тому, что в разных вселенных могут быть разные Люди-пауки и однажды им придется собраться вместе для борьбы с почти непобедимым врагом.">
+      <img src="https://thumb.wikimedia.org/wikipedia/ru/thumb/2/2c/Spider-Man_-_Into_the_Spider-Verse.jpg/960px-Spider-Man_-_Into_the_Spider-Verse.jpg?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=thumbnail" loading="lazy" alt="Через вселенные" onerror="this.src='https://via.placeholder.com/140x225?text=Spider-Verse'">
+      <div class="movie-title">Человек-паук: Через вселенные</div>
+    </div>
+    
+    <!-- Карточка 4 -->
+    <div class="movie-card"
+      data-cat="animated film"
+      data-src="https://rutube.ru/video/a5540b4d2b687a6c101dcfa4e59b7599/"
+      data-poster="https://avatars.mds.yandex.net/i?id=0f3e4462042719eb5ecd95e7c524951a548371a9-5264636-images-thumbs&n=13"
+      data-desc="После воссоединения с Гвен Стейси дружелюбный сосед Человек-Паук попадает из Бруклина в Мультивселенную, где встречает команду Паучков, защищающих само её существование. Пытаясь справиться с новой угрозой, Майлз сталкивается с Пауками из других вселенных. Настаёт момент, когда ему необходимо решить, что значит быть героем, спасающим тех, кого любишь больше всего.">
+      <img src="https://avatars.mds.yandex.net/i?id=0f3e4462042719eb5ecd95e7c524951a548371a9-5264636-images-thumbs&n=13" loading="lazy" alt="Паутина вселенных" onerror="this.src='https://via.placeholder.com/140x225?text=Across+Spider-Verse'">
+      <div class="movie-title">Человек-паук: Паутина вселенных</div>
+    </div>
+    <div class="movie-card"
+      data-cat="comedy"
+      data-src="https://rutube.ru/video/5d84684002a55f8540e72fdbb903ebd6/"
+      data-poster="https://avatars.mds.yandex.net/get-entity_search/9707519/687351296/S134x201_2x"
+      data-desc="5 друзей детства встречаются после 30 лет разлуки в летнем доме у озера на уик-энд в День независимости. Они приехали сюда с семьями, чтобы почтить память школьного тренера по баскетболу и отпраздновать тридцатую годовщину чемпионата, в котором они вместе выиграли.">
+      <img src="https://avatars.mds.yandex.net/get-entity_search/9707519/687351296/S134x201_2x" loading="lazy" alt="Паутина вселенных" onerror="this.src='https://via.placeholder.com/140x225?text=Across+Spider-Verse'">
+      <div class="movie-title">Одноклассники</div>
+    </div>
+    <div class="movie-card"
+      data-cat="comedy"
+      data-src="https://rutube.ru/video/df9d134eda7b6c300da2d51841ba33d8/"
+      data-poster="https://avatars.mds.yandex.net/get-ott/2385704/2a000001725adc89aebc3ef5f7dffb50a269/256x384"
+      data-desc="После того как Ленни Федер переезжает с семьей обратно в родной город, он и его друзья извлекут немало уроков, когда их дети окончат школу...">
+      <img src="https://avatars.mds.yandex.net/get-ott/2385704/2a000001725adc89aebc3ef5f7dffb50a269/256x384" loading="lazy" alt="Паутина вселенных" onerror="this.src='https://via.placeholder.com/140x225?text=Across+Spider-Verse'">
+      <div class="movie-title">Одноклассники 2</div>
+    </div>
+  </div>
+  <!-- Вкладка "Комментарии" (скрыта по умолчанию, покажет JS) -->
+<div id="tab-comments" class="tab-pane">
+  <div class="comment-form">
+    <form id="comment-form">
+      <input type="text" id="comment-name" placeholder="Ваше имя" required>
+      <textarea id="comment-text" placeholder="Ваш комментарий" required></textarea>
+      <button type="submit">Добавить комментарий</button>
+    </form>
+  </div>
+
+  <p id="no-comments-msg" style="text-align:center; color:#aaa; margin-top: 20px;">Пока нет комментариев. Будьте первым!</p>
+  <div id="comments-list"></div>
+</div>
+
+
+  <!-- Вкладки: Фильмы / Комментарии -->
+  <div class="tabs-switcher">
+    <button id="btn-movies" class="tab-btn active">Фильмы</button>
+    <button id="btn-comments" class="tab-btn">Комментарии</button>
+  </div>
+
+  <!-- Панель «Фильмы» (обёртка для существующей сетки) -->
+  <div id="tab-movies" class="tab-pane active">
+    <!-- Сетка .movies-grid уже есть выше, ничего дополнительно вставлять не нужно -->
+  </div>
+
+  <!-- Панель «Комментарии» -->
+  <div id="tab-comments" class="tab-pane" style="display:none;">
+    <h2>Обсуждение фильмов</h2>
+    <p>Здесь ты можешь оставить отзыв. Комментарий сохранится в твоём браузере и будет виден после перезагрузки страницы.</p>
+    
+    <form id="comment-form" class="comment-form">
+      <input type="text" id="comment-name" placeholder="Твое имя" required maxlength="30">
+      <textarea id="comment-text" rows="4" placeholder="Твой комментарий" required maxlength="500"></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+    
+    <div id="comments-list" class="comments-list">
+      <p id="no-comments-msg">Пока нет комментариев. Будь первым!</p>
+    </div>
+  </div>
+
+  <!-- Модальное окно: Постер + Описание + Плеер -->
+  <div id="player-modal">
+    <div id="modal-content">
+      <a href="#" class="close-modal" onclick="closePlayer(event)">&times;</a>
+      
+      <div class="modal-layout">
+        <!-- Постер: маленький, в левом верхнем углу -->
+        <div class="modal-left">
+          <img id="modal-poster" src="" alt="Постер фильма" class="modal-img">
+        </div>
+        
+        <!-- Описание и плеер: по центру, с отступом от постера -->
+        <div class="modal-right">
+          <div class="modal-description" id="modal-desc">
+            Выберите фильм, чтобы увидеть описание
+          </div>
+          <iframe id="modal-iframe" src="" frameborder="0" allowfullscreen
+            style="width: 100%; aspect-ratio: 16/9; border-radius: 8px; background: #000;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
