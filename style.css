@@ -410,3 +410,42 @@ h1 {
   color: #e0e0e0;
   line-height: 1.5;
 }
+/* Стили для карточки комментария (обязательно для работы JS) */
+.comment-item {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  background: rgba(19, 26, 51, 0.8); /* Полупрозрачный темный фон */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.comment-item:hover {
+  transform: translateY(-2px);
+  border-color: #ff6b6b;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #ffd93d; /* Золотистый цвет имени */
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.comment-date {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+  text-transform: none;
+}
+
+.comment-text {
+  color: #e0e0e0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  white-space: pre-wrap; /* Сохраняет переносы строк из textarea */
+}

@@ -1,18 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Элементы для фильтрации ---
   const buttons = document.querySelectorAll('.cat-btn');
   const cards = document.querySelectorAll('.movie-card');
   const modal = document.getElementById('player-modal');
-
-  // --- Элементы для вкладок ---
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabPanes = document.querySelectorAll('.tab-pane');
-
-  // --- Элементы для комментариев ---
   const form = document.getElementById('comment-form');
   const commentsList = document.getElementById('comments-list');
   const noCommentsMsg = document.getElementById('no-comments-msg');
 
+  // --- ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ: Сброс фильтра ---
+  function resetFilter() {
+    cards.forEach(card => card.style.display = '');
+    const activeCatBtn = document.querySelector('.cat-btn.active');
+    if (activeCatBtn) {
+      const cat = activeCatBtn.getAttribute('data-cat').toLowerCase();
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-cat').toLowerCase();
+        const shouldShow = (cat === 'all') || cardCat.includes(cat);
+        card.style.display = shouldShow ? '' : 'none';
+      });
+    }
+  }
 
   // === ФИЛЬТРАЦИЯ ПО КАТЕГОРИЯМ ===
   if (buttons.length > 0 && cards.length > 0) {
@@ -32,12 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
-  // === МОДАЛЬНОЕ ОКНО (ПЛЕЕР) ===
-  if (!modal) {
-    console.error('Ошибка: элемент #player-modal не найден в HTML');
-  } else {
-    // Клик по карточке фильма
+  // === МОДАЛЬНОЕ ОКНО ===
+  if (modal) {
     cards.forEach(card => {
       card.addEventListener('click', function () {
         const src = this.getAttribute('data-src');
@@ -47,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Закрытие по клику на фон
     modal.addEventListener('click', function (e) {
       if (e.target === this) closePlayer(e);
     });
@@ -55,9 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getEmbedUrl(src) {
     const rutubeMatch = src.match(/rutube\.ru\/video\/([a-z0-9]+)/i);
-    if (rutubeMatch && rutubeMatch.length > 0) {
-      const videoId = rutubeMatch[1];
-      return 'https://rutube.ru/play/embed/' + videoId + '/';
+    if (rutubeMatch && rutubeMatch.length > 1) {
+      // ВАЖНО: берём именно [1], а не весь массив
+      return 'https://rutube.ru/play/embed/' + rutubeMatch[1] + '/';
     }
     return src;
   }
@@ -67,14 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const posterImg = document.getElementById('modal-poster');
     const descDiv = document.getElementById('modal-desc');
 
-    if (posterImg && poster) posterImg.src = poster;
-    if (descDiv && desc) descDiv.textContent = desc;
-    
-    if (iframe) {
-      iframe.src = getEmbedUrl(src);
-    } else {
-      console.error('Ошибка: элемент #modal-iframe не найден');
-    }
+    if (posterImg) posterImg.src = poster;
+    if (descDiv) descDiv.textContent = desc;
+    if (iframe) iframe.src = getEmbedUrl(src);
 
     modal.style.display = 'flex';
   }
@@ -86,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (iframe) iframe.src = '';
   }
 
-
   // === ВКЛАДКИ (ФИЛЬМЫ / КОММЕНТАРИИ) ===
   if (tabBtns.length > 0 && tabPanes.length > 0) {
     tabBtns.forEach(btn => {
@@ -97,15 +94,19 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('active');
         const targetId = btn.id.replace('btn-', 'tab-');
         const targetPane = document.getElementById(targetId);
+        
         if (targetPane) {
           targetPane.classList.add('active');
+        }
+
+        if (btn.id === 'btn-movies') {
+          resetFilter();
         }
       });
     });
   }
 
-
-  // === КОММЕНТАРИИ (LOCALSTORAGE) ===
+  // === КОММЕНТАРИИ ===
   function escapeHtml(str) {
     return str
       .replace(/&/g, '&amp;')
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderComments() {
     const saved = localStorage.getItem('artem_entertainment_comments');
+    // ИСПРАВЛЕНО: теперь явно возвращаем пустой массив, если нет данных
     const comments = saved ? JSON.parse(saved) : [];
 
     if (!commentsList) return;
@@ -160,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!name || !text) return;
 
       const saved = localStorage.getItem('artem_entertainment_comments');
+      // ИСПРАВЛЕНО: пустой массив по умолчанию
       const comments = saved ? JSON.parse(saved) : [];
 
       comments.push({
@@ -174,5 +177,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  renderComments(); // Отрисовать комментарии при загрузке
+  renderComments();
 });
